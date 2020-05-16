@@ -1,4 +1,4 @@
-# VSCODE C++ Config
+# VS Code C++ Config
 
 ## How to install
 1. Install [VSCode](https://code.visualstudio.com/)
