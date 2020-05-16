@@ -4,7 +4,7 @@
 1. Install [VS Code](https://code.visualstudio.com/)
 1. Install `clang-format` and `clang-tidy`<br/>
   `sudo apt install clang-format clang-tidy`
-1. Install the following VS Code extentions<
+1. Install the following VS Code extentions
 
 | Extention | Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter
 | --------- | --------------------------------------------------------------------------------
