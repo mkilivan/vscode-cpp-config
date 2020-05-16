@@ -11,8 +11,8 @@ Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter
 Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.<br/>
 `ext install ms-vscode.cmake-tools`
 ## Available commands (`CTRL-P`)
-| Task                           | Keybinding |
-| ------------------------------ | ---------- |
-| `CMake: Run Without Debugging` | Shift+F5   |
-| `CMake: Build`                 | F7         |
-| `Debug: Start Debugging`       | F5         |
+| Task                           | Keybinding            |
+| ------------------------------ | --------------------- |
+| `CMake: Run Without Debugging` | <kbd>Shift+F5</kbd>   |
+| `CMake: Build`                 | <kbd>F7</kbd>         |
+| `Debug: Start Debugging`       | <kbd>F5</kbd>         |
