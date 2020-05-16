@@ -13,6 +13,6 @@ Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter
 ## Available commands (`CTRL-P`)
 | Task                           | Keybinding            |
 | ------------------------------ | --------------------- |
-| `CMake: Run Without Debugging` | <kbd>Shift+F5</kbd>   |
+| `CMake: Run Without Debugging` | <kbd>Shift</kbd>+<kbd>F5</kbd>   |
 | `CMake: Build`                 | <kbd>F7</kbd>         |
 | `Debug: Start Debugging`       | <kbd>F5</kbd>         |
