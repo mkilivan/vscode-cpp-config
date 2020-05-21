@@ -1,5 +1,4 @@
 {
-  "C_Cpp.intelliSenseEngine": "Tag Parser",
   "c-cpp-flylint.clang.standard": [
     "c++17"
   ],
@@ -11,5 +10,7 @@
   "files.associations": {
     "ostream": "cpp"
   },
+  "C_Cpp.intelliSenseEngine": "Tag Parser",
   "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
+  "C_Cpp.default.cppStandard": "c++17",
 }

@@ -17,5 +17,3 @@ if(ENABLE_CLANG_TIDY)
     message(SEND_ERROR "clang-tidy requested but executable not found")
   endif()
 endif()
-
-
