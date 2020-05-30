@@ -1,16 +1,4 @@
 {
-  "c-cpp-flylint.clang.standard": [
-    "c++17"
-  ],
-  "c-cpp-flylint.clang.extraArgs": [
-    "-Wno-c++98-compat"
-  ],
-  "c-cpp-flylint.clang.executable": "clang++",
-  "c-cpp-flylint.cppcheck.verbose": true,
-  "files.associations": {
-    "ostream": "cpp"
-  },
   "C_Cpp.intelliSenseEngine": "Tag Parser",
   "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
-  "C_Cpp.default.cppStandard": "c++17",
 }
