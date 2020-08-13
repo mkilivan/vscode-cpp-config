@@ -1,4 +1,5 @@
 {
   "C_Cpp.intelliSenseEngine": "Tag Parser",
   "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
+  "c-cpp-flylint.cppcheck.standard": ["c++11"],
 }
