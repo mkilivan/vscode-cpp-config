@@ -1,37 +1,72 @@
-## Welcome to GitHub Pages
+Coding Task: Colour Chart
+=========================
 
-You can use the [editor on GitHub](https://github.com/mkilivan/vscode-cpp-config/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This is a command line application to generate various test patterns.
+In the simplest case this program will produce a colour ramp starting with one
+colour on one side of the display and changing smoothly to a second colour on the other side.
+In the most complex case there will be a different colour in each corner of the display and
+each pixel on the display will show the appropriate mix of these four colours.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Implementation Details
+* Language
+  * C++14
+* Compiler
+  * GCC-8.1.0
+  * Visual Studio 2019 - x86
+* Build Machine
+  * Ubuntu 16.04
+  * Windows 10
+* Coding Style
+  * Custom coding style with clang-format
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Requirements
+* CMake 3.0+
+* C++14 or newer compiler
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+### Usage
+```bash
+ramp display tl tr [bl] [br]
 ```
+* **display** is the name of the display device
+* **tl** is the top left colour value
+* **tr** is the top right colour value
+* **bl** is the bottom left colour value [optional, defaults to tl]
+* **br** is the bottom right colour value [optional, defaults to tr]
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The colour values are specified as 16-bit RGB565 pixels in hex or decimal.
 
-### Jekyll Themes
+## Solution Details
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mkilivan/vscode-cpp-config/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+* The implementation has been broken up into short and simple pieces to make it an easier read. This also made it easier
+  to test.
+* The solution has been delivered as a CMake project. It has been compiled and tested on Ubuntu 16.10 and Windows.
+* Since the RGB565 format is endian specific, an inline method used to determine endianness, the application should work
+  on both little-endian and big-endian architecture, but it has been tested <ins>only on a little-endian machine</ins>.
+* Two sets of test group (test_Cli and test_ColourChart) added, and it builds by defaults as part of the project.
+* For error handling, exceptions are used. Depending on arguments, the following exceptions may be thrown:
+  | Command                      | Exception Type   | Exception Description                |
+  |------------------------------|------------------|--------------------------------------|
+  | ramp display                 | Invalid argument | Missing arguments                    |
+  | ramp display 0 0 0 foo0123   | Invalid argument | Input is not a valid decimal number. |
+  | ramp display 0 0 0 0xfoo0123 | Invalid argument | Input is not a valid hex number.     |
+  | ramp display 0 0 0 70000     | Out of range     | Input is out ouf range [0 - 65535]   |
+  | ramp display 0 0 0 0x12345   | Out of range     | Input is out ouf range [0 - 65535]   |
 
-### Support or Contact
+## Customize
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+The display's default size is defined in Display.cpp as follows and can be configured at the compile-time, but it can
+be accessed only at run time due to provided interface. So it is considered as an argument to the main application.
+If the display size is smaller then 2x2, then the application will throw `invalid argument` type exception with
+`Display size is too small` description.
+
+```C++
+namespace {
+  constexpr uint16_t Width = 640;
+  constexpr uint16_t Height = 360;
+} // namespace
+```
+### References
+* https://en.wikipedia.org/wiki/Bilinear_interpolation
