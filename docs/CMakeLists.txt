@@ -6,6 +6,7 @@ if(ENABLE_DOXYGEN)
   set(DOXYGEN_CALLER_GRAPH ON)
   set(DOXYGEN_CALL_GRAPH ON)
   set(DOXYGEN_EXTRACT_ALL ON)
-  set(DOXYFILE_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
+  set(DOXYGEN_PROJECT_BRIEF "An example of setting up C++ project")
+
   doxygen_add_docs(doxygen-docs ${PROJECT_SOURCE_DIR})
 endif()
